@@ -12,7 +12,7 @@ app.route("/").get(function (req, res) {
 	res.sendFile(process.cwd() + "/html/index.html");
 });
 
-// var htmlPath = path.join(__dirname, "html/");
+var htmlPath = path.join(__dirname, "html/");
 // app.use(express.static("html"));
 // app.use(express.static(__dirname));
 // app.use(express.static(path.join(__dirname, "/html")));
