@@ -33,9 +33,9 @@ app.use(express.json());
 // 	res.sendFile(htmlPath + "/about.html");
 // });
 
-// app.get("/contact", (req, res) => {
-// 	res.sendFile(htmlPath + "/contact.html");
-// });
+app.get("/contact", (req, res) => {
+	res.sendFile(htmlPath + "/contact.html");
+});
 
 // app.get("/cost-reduction-managment-better", (req, res) => {
 // 	res.sendFile(htmlPath + "/cost-reduction-managment-better.html");
