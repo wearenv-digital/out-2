@@ -1,22 +1,22 @@
 //console.log("Hello");
 
-const contactForm = document.querySelector(".contact-form");
-const form = document.querySelector("#contact-us-form");
+const contactForm = document.querySelector('.contact-form');
+const form = document.querySelector('#contact-us-form');
 
-const nameInput = document.getElementById("name");
-const emailInput = document.querySelector("#email");
-const telephoneInput = document.querySelector("#telephone");
-const serviceChoice = document.querySelector("#service-list");
-const messageInput = document.querySelector("#your-message");
-const consentInput = document.querySelector("#consent-button");
+const nameInput = document.getElementById('name');
+const emailInput = document.querySelector('#email');
+const telephoneInput = document.querySelector('#telephone');
+const serviceChoice = document.querySelector('#service-list');
+const messageInput = document.querySelector('#your-message');
+const consentInput = document.querySelector('#consent-button');
 
 const checkName = () => {
 	let valid = false;
 	const fullName = nameInput.value.trim();
 	if (!isRequired(fullName)) {
-		showError(nameInput, "Name field cannot be left blank");
+		showError(nameInput, 'Name field cannot be left blank');
 	} else if (!isNameValid(fullName)) {
-		showError(nameInput, "Name must only contain letters");
+		showError(nameInput, 'Name must only contain letters');
 	} else {
 		showSuccess(nameInput);
 		valid = true;
@@ -28,9 +28,9 @@ const checkEmail = () => {
 	let valid = false;
 	const email = emailInput.value.trim();
 	if (!isRequired(email)) {
-		showError(emailInput, "Email field cannot be left blank");
+		showError(emailInput, 'Email field cannot be left blank');
 	} else if (!isEmailValid(email)) {
-		showError(emailInput, "Email is not valid");
+		showError(emailInput, 'Email is not valid');
 	} else {
 		showSuccess(emailInput);
 		valid = true;
@@ -42,9 +42,9 @@ const checkTelephone = () => {
 	let valid = false;
 	const telephone = telephoneInput.value.trim();
 	if (!isRequired(telephone)) {
-		showError(telephoneInput, "Telephone field cannot be left blank");
+		showError(telephoneInput, 'Telephone field cannot be left blank');
 	} else if (!isTelephoneValid(telephone)) {
-		showError(telephoneInput, "Number is not valid");
+		showError(telephoneInput, 'Number is not valid');
 	} else {
 		showSuccess(telephoneInput);
 		valid = true;
@@ -68,47 +68,47 @@ const isTelephoneValid = (telephoneInput) => {
 	return re.test(telephoneInput);
 };
 
-const isRequired = (value) => (value === "" ? false : true);
+const isRequired = (value) => (value === '' ? false : true);
 
 const showError = (input, message) => {
 	const formField = input.parentElement;
-	formField.classList.remove("success");
-	formField.classList.add("error");
-	console.log("input error");
-	const error = formField.querySelector("small");
+	formField.classList.remove('success');
+	formField.classList.add('error');
+	console.log('input error');
+	const error = formField.querySelector('small');
 	error.textContent = message;
 };
 
 const showSuccess = (input) => {
 	const formField = input.parentElement;
-	formField.classList.remove("error");
-	formField.classList.add("success");
-	console.log("input success");
-	const error = formField.querySelector("small");
-	error.textContent = "";
+	formField.classList.remove('error');
+	formField.classList.add('success');
+	console.log('input success');
+	const error = formField.querySelector('small');
+	error.textContent = '';
 };
 
-const successMsg = document.getElementById("success");
-const failedMsg = document.getElementById("failed");
-const formContainer = document.getElementById("form-container");
+const successMsg = document.getElementById('success');
+const failedMsg = document.getElementById('failed');
+const formContainer = document.getElementById('form-container');
 
-successMsg.style.display = "none";
+successMsg.style.display = 'none';
 
 function successTime() {
-	successMsg.style.display = "flex";
-	formContainer.style.display = "none";
+	successMsg.style.display = 'block';
+	formContainer.style.display = 'none';
 }
 
-failedMsg.style.display = "none";
+failedMsg.style.display = 'none';
 
 function errorTime() {
-	formContainer.style.display = "none";
-	failedMsg.style.display = "flex";
+	formContainer.style.display = 'none';
+	failedMsg.style.display = 'block';
 }
 
-contactForm.addEventListener("submit", (e) => {
+contactForm.addEventListener('submit', (e) => {
 	e.preventDefault();
-	console.log("form submitted");
+	// console.log('form submitted');
 
 	let formData = {
 		name: nameInput.value,
@@ -121,21 +121,21 @@ contactForm.addEventListener("submit", (e) => {
 	console.log(formData);
 
 	let xhr = new XMLHttpRequest();
-	xhr.open("POST", "/");
-	xhr.setRequestHeader("content-type", "application/json");
+	xhr.open('POST', '/');
+	xhr.setRequestHeader('content-type', 'application/json');
 	xhr.onload = function () {
 		console.log(xhr.responseText);
-		if (xhr.responseText == "Success") {
-			console.log("Nice");
+		if (xhr.responseText == 'Success') {
+			console.log('Nice');
 			successTime();
-			nameInput.value = "";
-			emailInput.value = "";
-			telephoneInput.value = "";
-			serviceChoice.value = "";
-			messageInput.value = "";
-			consentInput.value = "";
+			nameInput.value = '';
+			emailInput.value = '';
+			telephoneInput.value = '';
+			serviceChoice.value = '';
+			messageInput.value = '';
+			consentInput.value = '';
 		} else {
-			alert("something went wrong");
+			console.log('something went wrong');
 		}
 	};
 
@@ -158,16 +158,16 @@ function debounce(fn, delay = 500) {
 
 //event delegation
 contactForm.addEventListener(
-	"input",
+	'input',
 	debounce(function (e) {
 		switch (e.target.id) {
-			case "name":
+			case 'name':
 				checkName();
 				break;
-			case "email":
+			case 'email':
 				checkEmail();
 				break;
-			case "telephone":
+			case 'telephone':
 				checkTelephone();
 				break;
 		}

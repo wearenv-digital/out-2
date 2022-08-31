@@ -5,6 +5,34 @@
   --warning-color: #ffc107;
 }
 
+
+
+#wf-form-message {
+  margin-left: 100px;
+}
+
+.section-5.wf-section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 100px;
+}
+
+div.split-form-area {
+  align-items: flex-start;
+}
+
+.right-form-block {
+  width: 60%;
+}
+
+.form-block {
+  width: 80%;
+  /* max-height: 600px; */
+  line-height: normal;
+  padding: none !important;
+  margin-bottom: 10px !important;
+}
+
 .form-field input:focus {
   outline: none;
 }
@@ -21,42 +49,24 @@
   color: var(--error-color);
 }
 
-* {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0px;
-  box-sizing: border-box;
-}
 
-.form-block{
-  position: relative;
-  left: 20%;
-  width: 60%;
-  height: auto;
-  background-color: #ffffff;
-}
 
-.contact-form {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 600px;
-}
+
 
 input,
 textarea {
   width: 100%;
-  margin-top: 2rem;
   border: none;
+  margin-top: 1em;
   border-bottom: 3px solid black;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
 }
 
 
 
 .form-button:hover {
   opacity: 0.6;
+  color: #fd3e4f;
 }
 
 .form-message-success,
@@ -68,6 +78,7 @@ textarea {
   background-color: #f4f4f4;
 }
 
+/* WEBFLOW CSS */
 
 
 .w-layout-grid {
@@ -15152,4 +15163,3 @@ textarea {
     grid-column-end: span 1;
   }
 }
-

@@ -103,7 +103,7 @@ app.post('/', (req, res) => {
 		port: 587,
 		secure: false,
 		auth: {
-			user: 'enquiries@outsourcedcreditcontrol.co.uk',
+			user: 'info@outsourcedcreditcontrol.co.uk',
 			pass: 'Fred1106!',
 		},
 	});
@@ -121,8 +121,8 @@ app.post('/', (req, res) => {
 	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {
 			var err = new Error();
-			console.log(error);
-			console.log(err.stack);
+			console.log(err);
+			// console.log(err.stack);
 			res.send('error');
 		} else {
 			console.log('Email sent' + info.res);

@@ -27,8 +27,9 @@
     box-sizing: border-box;
 }
 
-.form-block{
+.form-block {
     position: relative;
+    margin-bottom: 0px !important;
     left: 20%;
     width: 60%;
     height: auto;
@@ -66,4 +67,3 @@ textarea {
     justify-content: center;
     background-color: #f4f4f4;
 }
-
