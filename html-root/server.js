@@ -1,5 +1,6 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
+var path = require('path');
 var app = express();
 
 app.use(express.json());
@@ -9,55 +10,90 @@ app.use('/css', express.static('css'));
 app.use('/images', express.static('images'));
 app.use('/js', express.static('js'));
 
-console.log(process.cwd());
+// app.get('/', (req, res) => {
+// 	res.sendFile(__dirname + '/index.html');
+// 	console.log(req.url.pathname);
+// });
+
+// pathbinding
+var oldPath = __dirname + __filename;
+prettyPath = oldPath.substring(0, oldPath.lastIndexOf('.')) || oldPath;
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html');
-	console.log(req.url.pathname);
+});
+
+app.get('/*.html', (req, res) => {
+	console.log(req.url);
+	res.sendFile(__dirname + req.url);
 });
 
 app.get('/contact', (req, res) => {
 	res.sendFile(__dirname + '/contact.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/about', (req, res) => {
+	res.sendFile(__dirname + '/about.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/about.html', (req, res) => {
+	res.sendFile(__dirname + '/about.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/cost-reduction-management-better', (req, res) => {
+	res.sendFile(__dirname + '/cost-reduction-management-better.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/credit-checking-better', (req, res) => {
+	res.sendFile(__dirname + '/credit-checking-better.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/credit-control-tips', (req, res) => {
+	res.sendFile(__dirname + '/credit-control-tips.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/credit-management-health-check', (req, res) => {
+	res.sendFile(__dirname + '/credit-management-health-check.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/debt-recovery-collection-better', (req, res) => {
+	res.sendFile(__dirname + '/debt-recovery-collection-better.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/late-payment-calculator', (req, res) => {
+	res.sendFile(__dirname + '/late-payment-calculator.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/late-payment-better-templates', (req, res) => {
+	res.sendFile(__dirname + '/late-payment-better-templates.html');
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(__dirname + '/contact.html');
+app.get('/letter-before-action-checklist', (req, res) => {
+	res.sendFile(__dirname + '/letter-before-action-checklist.html');
+});
+
+app.get('/outsourced-credit-control', (req, res) => {
+	res.sendFile(__dirname + '/outsourced-credit-control.html');
+});
+
+app.get('/privacy-policy', (req, res) => {
+	res.sendFile(__dirname + '/privacy-policy.html');
+});
+
+app.get('/process-improvement', (req, res) => {
+	res.sendFile(__dirname + '/process-improvement.html');
+});
+
+app.get('/resources', (req, res) => {
+	res.sendFile(__dirname + '/resources.html');
+});
+
+app.get('/terms-and-conditions', (req, res) => {
+	res.sendFile(__dirname + '/terms-and-conditions.html');
+});
+
+app.get('/training-and-consultancy-better', (req, res) => {
+	res.sendFile(__dirname + '/training-and-consultancy-better.html');
 });
 
 app.listen(8080);
