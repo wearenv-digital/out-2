@@ -16,7 +16,7 @@ var htmlPath = path.join(__dirname, "html/");
 // app.use(express.static("html"));
 // app.use(express.static(__dirname));
 // app.use(express.static(path.join(__dirname, "/html")));
-// app.use(express.static(htmlPath));
+app.use(express.static(htmlPath));
 app.use(express.json());
 
 // app.get("/", (req, res) => {
