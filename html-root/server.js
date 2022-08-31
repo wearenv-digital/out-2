@@ -4,8 +4,8 @@ var path = require('path');
 var app = express();
 
 app.use(express.json());
-app.use('/public', express.static('public'));
 
+app.use('/public', express.static('public'));
 app.use('/css', express.static('css'));
 app.use('/images', express.static('images'));
 app.use('/js', express.static('js'));
@@ -94,6 +94,41 @@ app.get('/terms-and-conditions', (req, res) => {
 
 app.get('/training-and-consultancy-better', (req, res) => {
 	res.sendFile(__dirname + '/training-and-consultancy-better.html');
+});
+
+app.post('/', (req, res) => {
+	const transporter = nodemailer.createTransport({
+		service: 'smtp.ionos.co.uk',
+		host: 'smtp.ionos.co.uk',
+		port: 587,
+		secure: false,
+		auth: {
+			user: 'enquiries@outsourcedcreditcontrol.co.uk',
+			pass: 'Fred1106!',
+		},
+	});
+	const mailOptions = {
+		from: req.body.email,
+		to: 'info@outsourcedcreditcontrol.co.uk',
+		subject: `Message from ${req.body.email} about ${req.body.service}`,
+		text: `Message from: ${req.body.name}
+		Email: ${req.body.email}.
+		Tel no: ${req.body.telephone}.
+		Servive required: ${req.body.service}. 
+		Message: ${req.body.message}.
+		Consent: ${req.body.consent}`,
+	};
+	transporter.sendMail(mailOptions, (error, info) => {
+		if (error) {
+			var err = new Error();
+			console.log(error);
+			console.log(err.stack);
+			res.send('error');
+		} else {
+			console.log('Email sent' + info.res);
+			res.send('Success');
+		}
+	});
 });
 
 app.listen(8080);
