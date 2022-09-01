@@ -3,6 +3,8 @@ var nodemailer = require('nodemailer');
 var path = require('path');
 var app = express();
 
+const PORT = process.env.PORT || 5500; // CHANGE TO WHATEVER
+
 app.use(express.json());
 
 app.use('/css', express.static('css'));
@@ -125,4 +127,6 @@ app.post('/', (req, res) => {
 	});
 });
 
-app.listen(8080);
+app.listen(PORT, () => {
+	console.log(`server running on ports ${PORT}`);
+});
