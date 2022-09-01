@@ -2,7 +2,7 @@ module.exports = {
 	apps: [
 		{
 			name: 'myserver',
-			script: '/server.js',
+			script: '/html-root/server.js',
 			watch: true,
 			env: {
 				'PORT': 3000,
