@@ -3,7 +3,7 @@ var nodemailer = require('nodemailer');
 var path = require('path');
 var app = express();
 
-const PORT = process.env.PORT || 5500; // CHANGE TO WHATEVER
+const PORT = 8080; // CHANGE TO WHATEVER
 
 app.use(express.json());
 
