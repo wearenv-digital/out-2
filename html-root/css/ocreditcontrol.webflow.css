@@ -2999,7 +2999,7 @@ a.nav-link.w-inline-block {
   position: relative;
   z-index: 999;
   background-image: -webkit-gradient(linear, left top, right top, from(#e2ebf0), color-stop(29%, #fff));
-  background-image: linear-gradient(90deg, #e2ebf0, #fff 29%);
+  background-image: linear-gradient(270deg, #e2ebf0, #fff 29%);
 }
 
 .navbar-logo-center-container {
