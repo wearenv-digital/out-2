@@ -49,10 +49,6 @@ div.split-form-area {
   color: var(--error-color);
 }
 
-
-
-
-
 input,
 textarea {
   width: 100%;
@@ -76,6 +72,21 @@ textarea {
   padding-top: 60px;
   justify-content: center;
   background-color: #f4f4f4;
+}
+
+#w-node-_36beff25-e816-b12d-b292-a687736f6081-17235224 {
+  width: 100%
+}
+
+div.div-block-55 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+
+
+
+  min-width: 40%;
 }
 
 /* WEBFLOW CSS */
@@ -344,6 +355,12 @@ textarea {
   text-align: center;
 }
 
+/* SOCIAL ICONS CSS */
+img.image-8 {
+  max-width: 40px;
+  padding-top: 10px;
+}
+
 .remove-button {
   position: absolute;
   left: auto;
@@ -440,6 +457,10 @@ textarea {
   flex-direction: column;
   line-height: 1.5;
 }
+
+/* Nav Button CSS */
+
+
 
 .business-image-wrapper {
   position: relative;
@@ -703,7 +724,6 @@ textarea {
 }
 
 .button.nav-button {
-  min-width: auto;
   padding: 0.75rem 1.75rem;
   background-color: #e2ebf0;
 }
@@ -1302,9 +1322,9 @@ textarea {
 
 .button-text.about {
   display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  /* display: -webkit-flex; */
+  /* display: -ms-flexbox; */
+  /* display: flex; */
   height: 2.5rem;
 }
 
@@ -1524,6 +1544,7 @@ textarea {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
+  width: 100%;
   padding: 0px 1rem;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -1536,6 +1557,10 @@ textarea {
   color: #000;
   font-size: 0.875rem;
   text-decoration: none;
+}
+
+a.nav-link.w-inline-block {
+  min-width: fit-content;
 }
 
 .nav-link.mobile {
@@ -2989,7 +3014,8 @@ textarea {
 
 .navbar-logo-center-container.shadow-three {
   width: 100%;
-  max-width: 1140px;
+  max-width: 100%;
+  margin: 0 10px 0 10px;
 }
 
 .container {
@@ -12887,6 +12913,7 @@ textarea {
   grid-row-end: span 1;
   -ms-grid-column-align: end;
   justify-self: end;
+  margin-right: 10px;
 }
 
 #w-node-e1c852df-9b58-3854-9e12-2f546f18db03-18d2fc7f {
