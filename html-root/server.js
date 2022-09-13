@@ -92,6 +92,10 @@ app.get('/training-and-consultancy-better', (req, res) => {
 	res.sendFile(__dirname + '/training-and-consultancy-better.html');
 });
 
+app.get('/sitemap.xml', (req, res) => {
+	res.sendFile(__dirname + '/sitemap.xml');
+});
+
 app.post('/', (req, res) => {
 	const transporter = nodemailer.createTransport({
 		service: 'smtp.ionos.co.uk',
@@ -100,8 +104,8 @@ app.post('/', (req, res) => {
 		secure: false,
 		auth: {
 			user: 'info@outsourcedcreditcontrol.co.uk',
-			pass: 'Fred1106!',
-		},
+			pass: 'Fred1106!'
+		}
 	});
 	const mailOptions = {
 		from: req.body.email,
@@ -112,7 +116,7 @@ app.post('/', (req, res) => {
 		Tel no: ${req.body.telephone}.
 		Servive required: ${req.body.service}. 
 		Message: ${req.body.message}.
-		Consent: ${req.body.consent}`,
+		Consent: ${req.body.consent}`
 	};
 	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {
