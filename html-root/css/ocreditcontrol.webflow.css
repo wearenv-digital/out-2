@@ -5,7 +5,11 @@
 	--warning-color: #ffc107;
 }
 
-
+a:link,
+a:visited,
+a:active {
+	color: black;
+}
 
 #wf-form-message {
 	margin-left: 100px;
