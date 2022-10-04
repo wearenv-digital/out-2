@@ -101,7 +101,7 @@ app.get('/sitemap', (req, res) => {
 	res.sendFile(__dirname + '/sitemap.xml');
 });
 
-app.post('/send', (req, res) => {
+app.post('/', (req, res) => {
 	const transporter = nodemailer.createTransport({
 		service: 'smtp.ionos.co.uk',
 		host: 'smtp.ionos.co.uk',
