@@ -95,10 +95,13 @@ div.div-block-55 {
 	display: flex;
 	justify-content: center;
 	gap: 2em;
-
-
-
 	min-width: 40%;
+}
+
+div.div-block-56 {
+	margin-left: 60px;
+	margin-right: 60px;
+
 }
 
 /* WEBFLOW CSS */
