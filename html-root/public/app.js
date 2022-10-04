@@ -109,34 +109,34 @@ function errorTime() {
 contactForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 	// console.log('form submitted');
-
 	let formData = {
-		name: nameInput.value,
+		fullName: nameInput.value,
 		email: emailInput.value,
 		telephone: telephoneInput.value,
 		service: serviceChoice.value,
 		message: messageInput.value,
-		consent: consentInput.value,
+		consent: consentInput.value
 	};
+
 	console.log(formData);
 
 	let xhr = new XMLHttpRequest();
-	xhr.open('POST', '/');
+	xhr.open('POST', '/send');
 	xhr.setRequestHeader('content-type', 'application/json');
 	xhr.onload = function () {
 		console.log(xhr.responseText);
-		if (xhr.responseText == 'Success') {
-			console.log('Nice');
-			successTime();
+		if (xhr.status !== 200) {
+			console.log('error');
+			errorTime();
+		} else {
 			nameInput.value = '';
 			emailInput.value = '';
 			telephoneInput.value = '';
 			serviceChoice.value = '';
 			messageInput.value = '';
 			consentInput.value = '';
-		} else {
-			console.log('something went wrong');
 		}
+		successTime();
 	};
 
 	xhr.send(JSON.stringify(formData));

@@ -11,6 +11,7 @@ app.use('/css', express.static('css'));
 app.use('/images', express.static('images'));
 app.use('/js', express.static('js'));
 app.use('/public', express.static('public'));
+
 // pathbinding
 var oldPath = __dirname + __filename;
 prettyPath = oldPath.substring(0, oldPath.lastIndexOf('.')) || oldPath;
@@ -100,17 +101,27 @@ app.get('/sitemap', (req, res) => {
 	res.sendFile(__dirname + '/sitemap.xml');
 });
 
-app.post('/', (req, res) => {
+app.post('/send', (req, res) => {
 	const transporter = nodemailer.createTransport({
 		service: 'smtp.ionos.co.uk',
 		host: 'smtp.ionos.co.uk',
 		port: 587,
 		secure: false,
 		auth: {
-			user: 'info@outsourcedcreditcontrol.co.uk',
-			pass: 'Fred1106!'
+			user: 'enquiries@outsourcedcreditcontrol.co.uk',
+			pass: 'bitror-cyjSij-ketko6'
 		}
 	});
+	// var transporter = nodemailer.createTransport({
+	// 	host: 'smtp.mailtrap.io',
+	// 	port: 2525,
+	// 	auth: {
+	// 		user: '80ffa6314d8d52',
+	// 		pass: 'b8cb03fa74a9e6'
+	// 		// pass: 'test'
+	// 	}
+	// });
+
 	const mailOptions = {
 		from: req.body.email,
 		to: 'info@outsourcedcreditcontrol.co.uk',
@@ -122,16 +133,17 @@ app.post('/', (req, res) => {
 		Message: ${req.body.message}.
 		Consent: ${req.body.consent}`
 	};
+
 	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {
-			var err = new Error();
-			console.log(err);
+			console.log('error', error);
 			// console.log(err.stack);
-			res.send('error');
+			res.sendStatus(400);
 		} else {
 			console.log('Email sent' + info.res);
-			res.send('Success');
+			res.sendStatus(200);
 		}
+		return res.status(200).end();
 	});
 });
 
