@@ -121,7 +121,7 @@ contactForm.addEventListener('submit', (e) => {
 	console.log(formData);
 
 	let xhr = new XMLHttpRequest();
-	xhr.open('POST', '/send');
+	xhr.open('POST', '/');
 	xhr.setRequestHeader('content-type', 'application/json');
 	xhr.onload = function () {
 		console.log(xhr.responseText);
