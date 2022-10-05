@@ -2,6 +2,7 @@ var express = require('express');
 var nodemailer = require('nodemailer');
 var path = require('path');
 var app = express();
+require('dotenv').config('.env')
 
 const PORT = 8080; // CHANGE TO WHATEVER
 
@@ -109,7 +110,7 @@ app.post('/', (req, res) => {
 		secure: false,
 		auth: {
 			user: 'enquiries@outsourcedcreditcontrol.co.uk',
-			pass: 'bitror-cyjSij-ketko6'
+			pass: process.env.EMAIL_PASS
 		}
 	});
 	// var transporter = nodemailer.createTransport({
