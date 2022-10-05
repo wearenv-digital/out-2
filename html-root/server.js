@@ -2,7 +2,7 @@ var express = require('express');
 var nodemailer = require('nodemailer');
 var path = require('path');
 var app = express();
-require('dotenv').config('.env')
+require('dotenv').config('/html-root/.env');
 
 const PORT = 8080; // CHANGE TO WHATEVER
 
@@ -130,7 +130,7 @@ app.post('/', (req, res) => {
 		text: `Message from: ${req.body.name}
 		Email: ${req.body.email}.
 		Tel no: ${req.body.telephone}.
-		Servive required: ${req.body.service}. 
+		Service required: ${req.body.service}. 
 		Message: ${req.body.message}.
 		Consent: ${req.body.consent}`
 	};
